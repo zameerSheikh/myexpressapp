@@ -5,7 +5,7 @@ var app = express();
 app.use(express.static('images'))
 
 app.get('/', (req, res) => {
-    res.send(`Hello Node!!`)
+    res.sendFile(`views/index.html`, {'root': './'})
 });
 
 app.get('/info', (req, res) => {
@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
-  res.status(500).send('Something broke!')
+  res.status(500).send('Internal server error!')
 })
 
 
