@@ -10,4 +10,5 @@ app.get('/info', (req, res) => {
     res.send(`Hi I am zameer`)
 });
 
-app.listen(4000, () => console.log(`express app listening now!`))
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`express app listening now!`))
