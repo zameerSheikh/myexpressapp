@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/info', (req, res) => {
-    res.sendFile(`views/info.html`)
+    res.sendFile(`views/info.html`, {'root': './'})
 });
 
 app.use(function (req, res, next) {
