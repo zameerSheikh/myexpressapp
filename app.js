@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/info', (req, res) => {
-    res.send(`Hi I am zameer sheikh`)
+    res.sendFile(`views/info.html`)
 });
 
 app.use(function (req, res, next) {
