@@ -2,14 +2,22 @@ var express = require('express');
 
 var app = express();
 
-app.use(express.static('images'))
+app.use(express.static('images'));
 
+app.set('view engine', 'ejs');
+
+app.use(express.static('staticfiles'))
+
+// app.get('/', (req, res) => {
+//     res.sendFile(`views/index.html`, {'root': './'})
+// });
 app.get('/', (req, res) => {
-    res.sendFile(`views/index.html`, {'root': './'})
+    res.render(`index`)
 });
 
-app.get('/info', (req, res) => {
-    res.sendFile(`views/info.html`, {'root': './'})
+app.get('/info/:name', (req, res) => {
+    const {name} = req.params;
+    res.render(`info`, {name: name})
 });
 
 app.use(function (req, res, next) {
