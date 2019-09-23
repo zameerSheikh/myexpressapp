@@ -29,6 +29,6 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Internal server error!')
 })
 
-
+console.log('env', process.env);
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`express app listening now on ${PORT}!`))
